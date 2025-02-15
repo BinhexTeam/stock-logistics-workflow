@@ -35,7 +35,7 @@ class TestStockMoveQuickLot(TransactionCase):
             }
         )
         cls.picking.action_assign()
-        cls.move_line = cls.picking.move_lines[:1]
+        cls.move_line = cls.picking.move_ids[:1]
 
     def test_quick_input(self):
         self.assertTrue(self.move_line)

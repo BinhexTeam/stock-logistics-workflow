@@ -54,7 +54,7 @@ class StockMove(models.Model):
                 lot.expiration_date = line.expiration_date
 
     def production_lot_from_name(self, create_lot=True):
-        StockProductionLot = self.env["stock.production.lot"]
+        StockProductionLot = self.env["stock.lot"]
         if not self.line_lot_name:
             if self.move_line_ids:
                 raise ValidationError(_("Open detail to remove lot"))
