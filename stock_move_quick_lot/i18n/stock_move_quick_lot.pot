@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,6 +19,7 @@ msgid "End of Life Date"
 msgstr ""
 
 #. module: stock_move_quick_lot
+#. odoo-python
 #: code:addons/stock_move_quick_lot/models/stock_move.py:0
 #, python-format
 msgid "Go to lots to change data"
@@ -30,6 +31,7 @@ msgid "Lot Name"
 msgstr ""
 
 #. module: stock_move_quick_lot
+#. odoo-python
 #: code:addons/stock_move_quick_lot/models/stock_move.py:0
 #, python-format
 msgid "Open detail to remove lot"
