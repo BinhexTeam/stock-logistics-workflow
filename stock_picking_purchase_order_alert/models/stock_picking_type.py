@@ -6,7 +6,7 @@ class StockPickingType(models.Model):
     _inherit = "stock.picking.type"
 
     display_quantity_alert_percentage = fields.Boolean(
-        string="Display Quantity Alert Percentage",
+        string="Display Quantity Alert",
         default=False,
     )
     quantity_alert_percentage = fields.Float(

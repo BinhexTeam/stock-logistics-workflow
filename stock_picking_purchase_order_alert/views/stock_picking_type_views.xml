@@ -15,7 +15,11 @@
                         attrs="{'invisible': [('display_quantity_alert_percentage', '=', False)],
                     'required': [('display_quantity_alert_percentage', '=', True)]}"
                     />
-                    <field name="groups_ids" widget="many2many_tags" />
+                    <field
+                        name="groups_ids"
+                        widget="many2many_tags"
+                        attrs="{'invisible': [('display_quantity_alert_percentage', '=', False)]}"
+                    />
                 </group>
             </xpath>
         </field>

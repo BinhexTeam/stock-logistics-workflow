@@ -132,11 +132,12 @@ class StockPicking(models.Model):
             if groups_ids and not (
                 self.env.user.user_has_groups(self._get_group_names(groups_ids.ids))
             ):
-                raise UserError(
-                    _(
-                        f"Only the users that belongs to this groups {','.join(groups_ids.mapped('name'))} can validate the picking"
-                    )
-                )
+                group_names = [f"- {group.display_name}" for group in groups_ids]
+                error_msg = _(
+                    "In order to validate the picking you need to belong to "
+                    "any of these groups:\n%s"
+                ) % "\n".join(group_names)
+                raise UserError(error_msg)
 
             if picking.has_quantity_alert and "bypass_alert" not in self.env.context:
                 return {
