@@ -9,7 +9,7 @@ from odoo.tests.common import TransactionCase
 class TestStockMoveQuickLot(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestStockMoveQuickLot, cls).setUpClass()
+        super().setUpClass()
         cls.supplier_location = cls.env.ref("stock.stock_location_suppliers")
         cls.stock_location = cls.env.ref("stock.stock_location_stock")
         cls.picking_type_in = cls.env.ref("stock.picking_type_in")
