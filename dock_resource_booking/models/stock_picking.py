@@ -14,12 +14,12 @@ class StockPicking(models.Model):
     @api.onchange("booking_id")
     def _onchange_booking_id(self):
         if self.booking_id:
-            self.scheduled_date = self.booking_id.date_start
+            self.scheduled_date = self.booking_id.start
 
     @api.onchange("scheduled_date")
     def _onchange_scheduled_date(self):
         if self.booking_id and self.scheduled_date:
-            self.booking_id.date_start = self.scheduled_date
+            self.booking_id.start = self.scheduled_date
 
     @api.model
     def create(self, vals):
@@ -39,11 +39,13 @@ class StockPicking(models.Model):
                 booking = self.env["resource.booking"].create(
                     {
                         "name": _("Dock Reservation for %s") % picking.name,
-                        "date_start": picking.scheduled_date,
+                        "start": picking.scheduled_date,
                         "date_end": picking.scheduled_date,
-                        "resource_id": picking.dropoff_site_id.resource_id.id
-                        if picking.dropoff_site_id
-                        else False,
+                        "resource_id": (
+                            picking.dropoff_site_id.resource_id.id
+                            if picking.dropoff_site_id
+                            else False
+                        ),
                         "picking_ids": [(4, picking.id)],
                     }
                 )

@@ -3,15 +3,19 @@
     <record id="view_resource_booking_form_dock_resource_booking" model="ir.ui.view">
         <field name="name">resource.booking.form.dock.resource.booking</field>
         <field name="model">resource.booking</field>
-        <field name="inherit_id" ref="resource_booking.resource_booking_form" />
+        <field name="inherit_id" ref="resource_booking.resource_booking_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="inside">
                 <group string="Associated Pickings">
                     <field
                         name="picking_ids"
-                        context="{'default_booking_id': active_id}"
-                        mode="tree,kanban"
-                    />
+                        context="{'default_booking_id': active_id, 'create': 0}"
+                        widget="many2many"
+                    >
+                    <tree>
+                        <field name="name" />
+                    </tree>
+                    </field>
                 </group>
             </xpath>
         </field>
@@ -20,7 +24,7 @@
     <record id="view_resource_booking_tree_dock_resource_booking" model="ir.ui.view">
         <field name="name">resource.booking.tree.dock.resource.booking</field>
         <field name="model">resource.booking</field>
-        <field name="inherit_id" ref="resource_booking.resource_booking_tree" />
+        <field name="inherit_id" ref="resource_booking.resource_booking_view_tree" />
         <field name="arch" type="xml">
             <xpath expr="//tree" position="inside">
                 <field name="picking_ids" widget="many2many_tags" />
@@ -28,13 +32,13 @@
         </field>
     </record>
 
-    <record
+    <!-- <record
         id="view_resource_booking_calendar_dock_resource_booking"
         model="ir.ui.view"
     >
         <field name="name">resource.booking.calendar.dock.resource.booking</field>
         <field name="model">resource.booking</field>
-        <field name="inherit_id" ref="resource_booking.resource_booking_calendar" />
+        <field name="inherit_id" ref="resource_booking.resource_booking_view_calendar" />
         <field name="arch" type="xml">
             <xpath expr="//calendar" position="attributes">
                 <attribute name="color">picking_type_id</attribute>
@@ -70,5 +74,5 @@
                 </search>
             </xpath>
         </field>
-    </record>
+    </record> -->
 </odoo>
