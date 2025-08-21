@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="menu_dock_resource_booking_root"
+        name="Dock Reservations"
+        parent="stock.menu_stock_warehouse_mgmt"
+        sequence="100"
+    />
+    <menuitem
+        id="menu_dock_resource_booking_bookings"
+        name="Dock Bookings"
+        parent="menu_dock_resource_booking_root"
+        action="resource_booking.resource_booking_action"
+    />
+    <menuitem
+        id="menu_dock_resource_booking_pickings"
+        name="Dock Pickings"
+        parent="menu_dock_resource_booking_root"
+        action="stock.action_picking_tree_all"
+    />
+</odoo>
